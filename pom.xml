@@ -1,81 +1,61 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.edu.ifpb.es.daw</groupId>
-    <artifactId>crud-jpa-template</artifactId>
+    <artifactId>crud-mongo-template</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <hibernate.version>6.6.11.Final</hibernate.version>
-        <eclipselink.version>4.0.5</eclipselink.version>
-        <postgresql.driver.version>42.7.5</postgresql.driver.version>
-        <mysql.driver.version>9.2.0</mysql.driver.version>
-        <maven.shade.plugin.version>3.6.0</maven.shade.plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- Corrigido aqui -->
+        <spring.boot.version>2.7.5</spring.boot.version> <!-- Defina a versão do Spring Boot aqui -->
     </properties>
+
     <dependencies>
-        <!--  https://mvnrepository.com/artifact/jakarta.platform/jakarta.jakartaee-api  -->
+        <!-- MongoDB + Spring Boot -->
         <dependency>
-            <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>10.0.0</version>
-            <scope>provided</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <version>${spring.boot.version}</version> <!-- Use a versão definida -->
         </dependency>
-        <!--  Implementação do JPA: Hibernate  -->
+
+        <!-- Dependência do Spring Boot para aplicação básica -->
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring.boot.version}</version> <!-- Use a versão definida -->
         </dependency>
-        <!--  Pool de conexões com o banco de dados - Hibernate <-> c3p0  -->
+
+        <!-- (Opcional) Dependência para testes -->
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-c3p0</artifactId>
-            <version>${hibernate.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.boot.version}</version> <!-- Use a versão definida -->
+            <scope>test</scope>
         </dependency>
-        <!--  JDBC Driver do PostgreSQL  -->
+
+        <!-- Dependência do Spring Boot para Web (REST Controllers, etc.) -->
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>${postgresql.driver.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
+            <!-- Empacotamento com Maven Shade -->
             <plugin>
-                <!--  Repackages the project classes together with their dependencies into a single uber-jar,
-                                    optionally renaming classes or removing unused classes.
-                                    Referência: https://maven.apache.org/plugins/maven-shade-plugin/
-                                 -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>${maven.shade.plugin.version}</version>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <!--
-                                    Plugin que habilita mecanismo do Hibernate para fazer com que o "Lazy loading" funcione corretamente.
-                                    Referência1: https://docs.jboss.org/hibernate/orm/6.6/userguide/html_single/Hibernate_User_Guide.html#tooling-maven
-                                    Referência2: https://docs.jboss.org/hibernate/orm/6.6/userguide/html_single/Hibernate_User_Guide.html#tooling-maven-enhancement
-                                    Referência3: https://docs.jboss.org/hibernate/orm/6.6/userguide/html_single/Hibernate_User_Guide.html#BytecodeEnhancement-lazy-loading
-                                 -->
-                <groupId>org.hibernate.orm.tooling</groupId>
-                <artifactId>hibernate-enhance-maven-plugin</artifactId>
-                <version>${hibernate.version}</version>
-                <executions>
-                    <execution>
-                        <configuration>
-                            <enableLazyInitialization>true</enableLazyInitialization>
-                        </configuration>
-                        <goals>
-                            <goal>enhance</goal>
                         </goals>
                     </execution>
                 </executions>

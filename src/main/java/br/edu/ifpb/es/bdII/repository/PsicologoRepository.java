@@ -6,5 +6,4 @@ import java.util.Optional;
 
 public interface PsicologoRepository extends MongoRepository<Psicologo, String> {
     Optional<Psicologo> findByCrp(Long crp);
-    void deleteByCrp(Long crp);
 }

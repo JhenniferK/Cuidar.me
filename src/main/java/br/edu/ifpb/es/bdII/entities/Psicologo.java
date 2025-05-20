@@ -9,22 +9,27 @@ public class Psicologo {
 
     @Id
     private String id;
-    private Long crp;
+    private String crp;
     private String nome;
     private String email;
     private String senha;
 
-    public Psicologo() {}
+    public Psicologo(String crp, String nome, String email, String senha) {
+        this.crp = crp;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
 
     public String getId() { return id; }
 
     public void setId(String id) { this.id = id; }
 
-    public Long getCrp() {
+    public String getCrp() {
         return crp;
     }
 
-    public void setCrp(Long crp) {
+    public void setCrp(String crp) {
         this.crp = crp;
     }
 

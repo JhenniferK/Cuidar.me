@@ -9,14 +9,19 @@ public class Paciente {
 
     @Id
     private String id;
-    private Long cpf;
-    private ContatoEmergencia contatoEmergencia;
-    private Long rg;
+    private String nome;
+    private String cpf;
+    private String rg;
     private Endereco enderecoPessoal;
     private Endereco enderecoTrabalho;
-    private String info_adicionais;
+    private ContatoEmergencia contatoEmergencia;
+    private String infos_adicionais;
 
-    public Paciente() {}
+    public Paciente(String nome, String cpf, String rg) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.rg = rg;
+    }
 
     public String getId() {
         return id;
@@ -26,27 +31,23 @@ public class Paciente {
         this.id = id;
     }
 
-    public Long getCpf() {
+    public String getNome() { return nome; }
+
+    public void setNome(String nome) { this.nome = nome; }
+
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public ContatoEmergencia getContatoEmergencia() {
-        return contatoEmergencia;
-    }
-
-    public void setContatoEmergencia(ContatoEmergencia contatoEmergencia) {
-        this.contatoEmergencia = contatoEmergencia;
-    }
-
-    public Long getRg() {
+    public String getRg() {
         return rg;
     }
 
-    public void setRg(Long rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 
@@ -66,12 +67,20 @@ public class Paciente {
         this.enderecoTrabalho = enderecoTrabalho;
     }
 
-    public String getInfo_adicionais() {
-        return info_adicionais;
+    public ContatoEmergencia getContatoEmergencia() {
+        return contatoEmergencia;
     }
 
-    public void setInfo_adicionais(String info_adicionais) {
-        this.info_adicionais = info_adicionais;
+    public void setContatoEmergencia(ContatoEmergencia contatoEmergencia) {
+        this.contatoEmergencia = contatoEmergencia;
+    }
+
+    public String getInfos_adicionais() {
+        return infos_adicionais;
+    }
+
+    public void setInfos_adicionais(String infos_adicionais) {
+        this.infos_adicionais = infos_adicionais;
     }
 
     @Override
@@ -79,24 +88,25 @@ public class Paciente {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Paciente paciente = (Paciente) o;
-        return Objects.equals(id, paciente.id) && Objects.equals(cpf, paciente.cpf) && Objects.equals(contatoEmergencia, paciente.contatoEmergencia) && Objects.equals(rg, paciente.rg) && Objects.equals(enderecoPessoal, paciente.enderecoPessoal) && Objects.equals(enderecoTrabalho, paciente.enderecoTrabalho) && Objects.equals(info_adicionais, paciente.info_adicionais);
+        return Objects.equals(id, paciente.id) && Objects.equals(cpf, paciente.cpf) && Objects.equals(contatoEmergencia, paciente.contatoEmergencia) && Objects.equals(rg, paciente.rg) && Objects.equals(enderecoPessoal, paciente.enderecoPessoal) && Objects.equals(enderecoTrabalho, paciente.enderecoTrabalho) && Objects.equals(infos_adicionais, paciente.infos_adicionais);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cpf, contatoEmergencia, rg, enderecoPessoal, enderecoTrabalho, info_adicionais);
+        return Objects.hash(id, cpf, contatoEmergencia, rg, enderecoPessoal, enderecoTrabalho, infos_adicionais);
     }
 
     @Override
     public String toString() {
         return "Paciente{" +
                 "id='" + id + '\'' +
+                ", nome=" + nome +
                 ", cpf=" + cpf +
-                ", contatoEmergencia=" + contatoEmergencia +
                 ", rg=" + rg +
                 ", enderecoPessoal=" + enderecoPessoal +
                 ", enderecoTrabalho=" + enderecoTrabalho +
-                ", info_adicionais='" + info_adicionais + '\'' +
+                ", contatoEmergencia=" + contatoEmergencia +
+                ", info_adicionais='" + infos_adicionais + '\'' +
                 '}';
     }
 }

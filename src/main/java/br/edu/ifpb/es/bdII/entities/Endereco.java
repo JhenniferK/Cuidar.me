@@ -9,7 +9,12 @@ public class Endereco {
     private String cidade;
     private String estado;
 
-    public Endereco() {}
+    public Endereco(String logradouro, Integer numero, String cidade, String estado) {
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.cidade = cidade;
+        this.estado = estado;
+    }
 
     public String getLogradouro() {
         return logradouro;

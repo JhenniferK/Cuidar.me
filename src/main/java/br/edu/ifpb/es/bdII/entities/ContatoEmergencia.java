@@ -4,9 +4,12 @@ import java.util.Objects;
 
 public class ContatoEmergencia {
     private String nome;
-    private Integer telefone;
+    private String telefone;
 
-    public ContatoEmergencia() {}
+    public ContatoEmergencia(String nome, String telefone) {
+        this.nome = nome;
+        this.telefone = telefone;
+    }
 
     public String getNome() {
         return nome;
@@ -16,11 +19,11 @@ public class ContatoEmergencia {
         this.nome = nome;
     }
 
-    public Integer getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Integer telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 

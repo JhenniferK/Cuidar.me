@@ -14,13 +14,17 @@ public class Paciente {
     private String rg;
     private Endereco enderecoPessoal;
     private Endereco enderecoTrabalho;
+    private String contato;
     private ContatoEmergencia contatoEmergencia;
     private String infos_adicionais;
 
-    public Paciente(String nome, String cpf, String rg) {
+    public Paciente(String nome, String cpf, String rg, Endereco enderecoPessoal, Endereco enderecoTrabalho, String contato, ContatoEmergencia contatoEmergencia) {
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
+        this.enderecoPessoal = enderecoPessoal;
+        this.enderecoTrabalho = enderecoTrabalho;
+        this.contatoEmergencia = contatoEmergencia;
     }
 
     public String getId() {
@@ -67,6 +71,10 @@ public class Paciente {
         this.enderecoTrabalho = enderecoTrabalho;
     }
 
+    public String getContato() { return contato; }
+
+    public void setContato(String contato) { this.contato = contato; }
+
     public ContatoEmergencia getContatoEmergencia() {
         return contatoEmergencia;
     }
@@ -88,12 +96,12 @@ public class Paciente {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Paciente paciente = (Paciente) o;
-        return Objects.equals(id, paciente.id) && Objects.equals(cpf, paciente.cpf) && Objects.equals(contatoEmergencia, paciente.contatoEmergencia) && Objects.equals(rg, paciente.rg) && Objects.equals(enderecoPessoal, paciente.enderecoPessoal) && Objects.equals(enderecoTrabalho, paciente.enderecoTrabalho) && Objects.equals(infos_adicionais, paciente.infos_adicionais);
+        return Objects.equals(id, paciente.id) && Objects.equals(nome, paciente.nome) && Objects.equals(cpf, paciente.cpf) && Objects.equals(rg, paciente.rg) && Objects.equals(enderecoPessoal, paciente.enderecoPessoal) && Objects.equals(enderecoTrabalho, paciente.enderecoTrabalho) && Objects.equals(contato, paciente.contato) && Objects.equals(contatoEmergencia, paciente.contatoEmergencia) && Objects.equals(infos_adicionais, paciente.infos_adicionais);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cpf, contatoEmergencia, rg, enderecoPessoal, enderecoTrabalho, infos_adicionais);
+        return Objects.hash(id, nome, cpf, rg, enderecoPessoal, enderecoTrabalho, contato, contatoEmergencia, infos_adicionais);
     }
 
     @Override
@@ -105,6 +113,7 @@ public class Paciente {
                 ", rg=" + rg +
                 ", enderecoPessoal=" + enderecoPessoal +
                 ", enderecoTrabalho=" + enderecoTrabalho +
+                ", contato=" + contato +
                 ", contatoEmergencia=" + contatoEmergencia +
                 ", info_adicionais='" + infos_adicionais + '\'' +
                 '}';

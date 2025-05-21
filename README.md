@@ -2,7 +2,7 @@
 
 ## 🌐 Visão Geral
 
-O **Cuidar.me** é uma plataforma integrada desenvolvida para otimizar a rotina administrativa de psicólogos e psicólogas. Em um cenário onde o excesso de tarefas manuais pode comprometer a qualidade do atendimento, o sistema surge como uma solução completa para **organização de prontuários**, **agendamento de consultas**, **controle financeiro**, **comunicação com pacientes** e **gestão de documentos** — tudo isso com foco em **segurança e conformidade com a LGPD**.
+O **Cuidar.me** é um sistema web que está sendo desenvolvido para otimizar a rotina administrativa de psicólogos. Em um cenário onde o excesso de tarefas manuais pode comprometer a qualidade do atendimento, o sistema surge como uma solução completa para **organização de prontuários**, **agendamento de consultas**, **controle financeiro**, **comunicação com pacientes** e **gestão de documentos**, tudo isso com foco em **segurança e conformidade com a LGPD**.
 
 ## 🧩 Mini-Mundo
 
@@ -13,7 +13,7 @@ Muitos profissionais da psicologia enfrentam desafios como:
 * Risco de violação da privacidade por falta de um sistema seguro;
 * Falta de comunicação eficiente com os pacientes.
 
-O **Cuidar.me** foi desenvolvido especialmente para atender essas demandas, inicialmente pensando em uma psicóloga autônoma. O objetivo é oferecer uma ferramenta confiável, intuitiva e segura para **centralizar todas as informações clínicas e administrativas** em um único lugar.
+O **Cuidar.me** surge especialmente para atender essas demandas, inicialmente pensando em uma psicóloga autônoma. O objetivo é oferecer uma ferramenta confiável, intuitiva e segura para **centralizar todas as informações clínicas e administrativas** em um único lugar.
 
 ## ✅ Funcionalidades
 

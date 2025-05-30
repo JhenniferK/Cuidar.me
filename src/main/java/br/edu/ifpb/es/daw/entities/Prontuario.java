@@ -15,9 +15,13 @@ public class Prontuario {
     @Column(name = "Descricao")
     private String descricao;
     @Column(name = "Data_Registro")
-    private LocalDateTime data_registro;
+    private LocalDateTime dataRegistro;
 
-    public Prontuario(){
+    @ManyToOne
+    @JoinColumn(name = "paciente_id")
+    private Paciente paciente;
+
+    public Prontuario() {
 
     }
 
@@ -37,12 +41,20 @@ public class Prontuario {
         this.descricao = descricao;
     }
 
-    public LocalDateTime getData_registro() {
-        return data_registro;
+    public LocalDateTime getDataRegistro() {
+        return dataRegistro;
     }
 
-    public void setData_registro(LocalDateTime data_registro) {
-        this.data_registro = data_registro;
+    public void setDataRegistro(LocalDateTime dataRegistro) {
+        this.dataRegistro = dataRegistro;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
     @Override
@@ -50,12 +62,12 @@ public class Prontuario {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Prontuario that = (Prontuario) o;
-        return Objects.equals(id, that.id) && Objects.equals(descricao, that.descricao) && Objects.equals(data_registro, that.data_registro);
+        return Objects.equals(id, that.id) && Objects.equals(descricao, that.descricao) && Objects.equals(dataRegistro, that.dataRegistro) && Objects.equals(paciente, that.paciente);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, descricao, data_registro);
+        return Objects.hash(id, descricao, dataRegistro, paciente);
     }
 
     @Override
@@ -63,7 +75,8 @@ public class Prontuario {
         return "Prontuario{" +
                 "id=" + id +
                 ", descricao='" + descricao + '\'' +
-                ", data_registro=" + data_registro +
+                ", dataRegistro=" + dataRegistro +
+                ", paciente=" + paciente +
                 '}';
     }
 }

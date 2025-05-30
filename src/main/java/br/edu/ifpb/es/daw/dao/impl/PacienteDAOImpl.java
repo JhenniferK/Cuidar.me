@@ -24,6 +24,7 @@ public class PacienteDAOImpl extends AbstractDAOImpl<Paciente, Long> implements 
             throw new PersistenciaDawException("Ocorreu um erro ao tentar encontrar o paciente através do cpf.", e);
         }
     }
+
     public boolean deleteByCPF(Long cpf) throws PersistenciaDawException {
         EntityManager em = getEntityManager();
         try {

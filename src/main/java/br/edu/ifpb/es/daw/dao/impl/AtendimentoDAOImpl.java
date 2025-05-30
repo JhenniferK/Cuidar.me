@@ -26,6 +26,7 @@ public class AtendimentoDAOImpl extends AbstractDAOImpl<Atendimento, Long> imple
             throw new PersistenciaDawException("Ocorreu um erro ao tentar encontrar o atendimento pela localidade.", e);
         }
     }
+
     public void deleteByData(Date data) throws PersistenciaDawException {
         EntityManager em = getEntityManager();
         try {

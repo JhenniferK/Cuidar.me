@@ -16,6 +16,7 @@ public class MainPacienteSave {
         Paciente paciente = new Paciente();
 
         paciente.setCpf(12345678900L);
+        paciente.setNome("Joyce Gregório");
 
         ContatoEmergencia contatoEmergencia = new ContatoEmergencia();
         contatoEmergencia.setNome("Jhennifer");
@@ -40,7 +41,6 @@ public class MainPacienteSave {
 
         System.out.println(paciente);
         pacienteDAO.save(paciente);
-        System.out.println(paciente);
-
+        System.out.println("Paciente " + paciente.getNome() + " salvo");
     }
 }

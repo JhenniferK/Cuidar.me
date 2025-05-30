@@ -14,7 +14,7 @@ public class MainAtendimentoDeleteAll {
         try(EntityManagerFactory emf = Persistence.createEntityManagerFactory("daw")){
             AtendimentoDAO atendimentoDAO = new AtendimentoDAOImpl(emf);
             List<Atendimento> atendimentos = atendimentoDAO.getAll();
-            for(Atendimento atendimento : atendimentos){
+            for(Atendimento atendimento : atendimentos) {
                 atendimentoDAO.delete(atendimento.getId());
             }
         }

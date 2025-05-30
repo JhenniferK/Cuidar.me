@@ -24,6 +24,5 @@ public class MainAtendimentoSave {
         System.out.println(atendimento);
         atendimentoDAO.save(atendimento);
         System.out.println(atendimento);
-
     }
 }

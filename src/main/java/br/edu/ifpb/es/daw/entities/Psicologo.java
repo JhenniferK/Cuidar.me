@@ -1,6 +1,11 @@
 package br.edu.ifpb.es.daw.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "Psicologo")
@@ -16,7 +21,11 @@ public class Psicologo {
     @Column(name = "Senha")
     private String senha;
 
-    public Psicologo(){
+    @OneToMany(mappedBy = "psicologo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Atendimento> Atendimentos = new ArrayList<>();
+
+    public Psicologo() {
+
     }
 
     public Long getCrp() {
@@ -26,6 +35,7 @@ public class Psicologo {
     public void setCrp(Long crp) {
         this.crp = crp;
     }
+
     public String getNome() {
         return nome;
     }
@@ -50,6 +60,27 @@ public class Psicologo {
         this.senha = senha;
     }
 
+    public List<Atendimento> getAtendimentos() {
+        return Atendimentos;
+    }
+
+    public void setAtendimentos(List<Atendimento> atendimentos) {
+        Atendimentos = atendimentos;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Psicologo psicologo = (Psicologo) o;
+        return Objects.equals(crp, psicologo.crp) && Objects.equals(nome, psicologo.nome) && Objects.equals(email, psicologo.email) && Objects.equals(senha, psicologo.senha) && Objects.equals(Atendimentos, psicologo.Atendimentos);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(crp, nome, email, senha, Atendimentos);
+    }
+
     @Override
     public String toString() {
         return "Psicologo{" +
@@ -57,6 +88,7 @@ public class Psicologo {
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
+                ", Atendimentos=" + Atendimentos +
                 '}';
     }
 }

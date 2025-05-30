@@ -1,9 +1,7 @@
 package br.edu.ifpb.es.daw.entities;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -20,7 +18,15 @@ public class Atendimento {
     @Column(name = "Agendado")
     private Boolean agendado;
 
-    public Atendimento(){
+    @ManyToOne
+    @JoinColumn(name = "psicologo_id")
+    private Psicologo psicologo;
+
+    @ManyToOne
+    @JoinColumn(name = "paciente_id")
+    private Paciente paciente;
+
+    public Atendimento() {
 
     }
 
@@ -40,7 +46,6 @@ public class Atendimento {
         this.data = data;
     }
 
-
     public String getLocalidade() {
         return localidade;
     }
@@ -49,11 +54,11 @@ public class Atendimento {
         this.localidade = localidade;
     }
 
-    public boolean isAgendado() {
+    public Boolean isAgendado() {
         return agendado;
     }
 
-    public void setAgendado(boolean agendado) {
+    public void setAgendado(Boolean agendado) {
         this.agendado = agendado;
     }
 
@@ -77,6 +82,8 @@ public class Atendimento {
                 ", data=" + data +
                 ", localidade='" + localidade + '\'' +
                 ", agendado=" + agendado +
+                ", psicologo=" + psicologo +
+                ", paciente=" + paciente +
                 '}';
     }
 }

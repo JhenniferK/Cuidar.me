@@ -16,8 +16,11 @@ public class Pagamento {
     private Integer valor;
     @Enumerated(EnumType.STRING)
     private Metodo metodo;
-    @Column(name = "Status")
-    private Boolean status;
+    @Column(name = "Status_pagamento")
+    private StatusPagamento statusPagamento;
+
+    public Pagamento() {
+    }
 
     private LocalDateTime data;
 
@@ -44,12 +47,12 @@ public class Pagamento {
         this.metodo = metodo;
     }
 
-    public boolean isStatus() {
-        return status;
+    public StatusPagamento isStatus() {
+        return statusPagamento;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setStatus(StatusPagamento statusPagamento) {
+        this.statusPagamento = statusPagamento;
     }
 
     public LocalDateTime getData() {
@@ -65,12 +68,12 @@ public class Pagamento {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pagamento pagamento = (Pagamento) o;
-        return Objects.equals(id, pagamento.id) && Objects.equals(valor, pagamento.valor) && metodo == pagamento.metodo && Objects.equals(status, pagamento.status) && Objects.equals(data, pagamento.data);
+        return Objects.equals(id, pagamento.id) && Objects.equals(valor, pagamento.valor) && metodo == pagamento.metodo && Objects.equals(statusPagamento, pagamento.statusPagamento) && Objects.equals(data, pagamento.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, valor, metodo, status, data);
+        return Objects.hash(id, valor, metodo, statusPagamento, data);
     }
 
     @Override
@@ -79,7 +82,7 @@ public class Pagamento {
                 "id=" + id +
                 ", valor=" + valor +
                 ", metodo='" + metodo + '\'' +
-                ", status=" + status +
+                ", status=" + statusPagamento +
                 ", data=" + data +
                 '}';
     }

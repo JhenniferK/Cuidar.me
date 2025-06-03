@@ -1,7 +1,6 @@
 package br.edu.ifpb.es.daw.entities;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Cascade;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +21,12 @@ public class Psicologo {
     private String senha;
 
     @OneToMany(mappedBy = "psicologo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Atendimento> Atendimentos = new ArrayList<>();
+    private List<Atendimento> atendimentos = new ArrayList<>();
+
+    @OneToMany(mappedBy = "prontuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Prontuario> prontuarios = new ArrayList<>();
 
     public Psicologo() {
-
     }
 
     public Long getCrp() {
@@ -60,25 +61,18 @@ public class Psicologo {
         this.senha = senha;
     }
 
-    public List<Atendimento> getAtendimentos() {
-        return Atendimentos;
-    }
-
-    public void setAtendimentos(List<Atendimento> atendimentos) {
-        Atendimentos = atendimentos;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Psicologo psicologo = (Psicologo) o;
-        return Objects.equals(crp, psicologo.crp) && Objects.equals(nome, psicologo.nome) && Objects.equals(email, psicologo.email) && Objects.equals(senha, psicologo.senha) && Objects.equals(Atendimentos, psicologo.Atendimentos);
+        return Objects.equals(crp, psicologo.crp) && Objects.equals(nome, psicologo.nome) && Objects.equals(email, psicologo.email) && Objects.equals(senha, psicologo.senha) && Objects.equals(atendimentos, psicologo.atendimentos) && Objects.equals(prontuarios, psicologo.prontuarios);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(crp, nome, email, senha, Atendimentos);
+        return Objects.hash(crp, nome, email, senha, atendimentos, prontuarios);
     }
 
     @Override
@@ -88,7 +82,8 @@ public class Psicologo {
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
-                ", Atendimentos=" + Atendimentos +
+                ", Atendimentos=" + atendimentos + '\'' +
+                ", prontuarios=" + prontuarios +
                 '}';
     }
 }

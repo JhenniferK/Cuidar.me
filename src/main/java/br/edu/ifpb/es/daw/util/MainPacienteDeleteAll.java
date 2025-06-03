@@ -15,7 +15,7 @@ public class MainPacienteDeleteAll {
             PacienteDAO pacienteDAO = new PacienteDAOImpl(emf);
             List<Paciente> pacientes = pacienteDAO.getAll();
             for(Paciente paciente : pacientes){
-                pacienteDAO.delete(paciente.getCpf());
+                pacienteDAO.delete(paciente.getId());
             }
         }
     }

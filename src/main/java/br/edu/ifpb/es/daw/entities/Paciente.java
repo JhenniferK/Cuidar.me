@@ -37,7 +37,7 @@ public class Paciente {
     })
     private Endereco enderecoTrabalho;
     @Column(name = "Infos_Adicionais")
-    private String info_adicionais;
+    private String infoAdicionais;
 
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Atendimento> atendimentos = new ArrayList<>();
@@ -49,7 +49,6 @@ public class Paciente {
     private List<Pagamento> pagamentos = new ArrayList<>();
 
     public Paciente() {
-
     }
 
     public String getNome() {
@@ -100,12 +99,12 @@ public class Paciente {
         this.enderecoTrabalho = enderecoTrabalho;
     }
 
-    public String getInfo_adicionais() {
-        return info_adicionais;
+    public String getInfoAdicionais() {
+        return infoAdicionais;
     }
 
-    public void setInfo_adicionais(String info_adicionais) {
-        this.info_adicionais = info_adicionais;
+    public void setInfoAdicionais(String infoAdicionais) {
+        this.infoAdicionais = infoAdicionais;
     }
 
     public ContatoEmergencia getContatoEmergencia() {
@@ -145,12 +144,12 @@ public class Paciente {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Paciente paciente = (Paciente) o;
-        return Objects.equals(id, paciente.id) && Objects.equals(nome, paciente.nome) && Objects.equals(cpf, paciente.cpf) && Objects.equals(rg, paciente.rg) && Objects.equals(contatoEmergencia, paciente.contatoEmergencia) && Objects.equals(enderecoPessoal, paciente.enderecoPessoal) && Objects.equals(enderecoTrabalho, paciente.enderecoTrabalho) && Objects.equals(info_adicionais, paciente.info_adicionais) && Objects.equals(atendimentos, paciente.atendimentos) && Objects.equals(prontuarios, paciente.prontuarios) && Objects.equals(pagamentos, paciente.pagamentos);
+        return Objects.equals(id, paciente.id) && Objects.equals(nome, paciente.nome) && Objects.equals(cpf, paciente.cpf) && Objects.equals(rg, paciente.rg) && Objects.equals(contatoEmergencia, paciente.contatoEmergencia) && Objects.equals(enderecoPessoal, paciente.enderecoPessoal) && Objects.equals(enderecoTrabalho, paciente.enderecoTrabalho) && Objects.equals(infoAdicionais, paciente.infoAdicionais) && Objects.equals(atendimentos, paciente.atendimentos) && Objects.equals(prontuarios, paciente.prontuarios) && Objects.equals(pagamentos, paciente.pagamentos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, cpf, rg, contatoEmergencia, enderecoPessoal, enderecoTrabalho, info_adicionais, atendimentos, prontuarios, pagamentos);
+        return Objects.hash(id, nome, cpf, rg, contatoEmergencia, enderecoPessoal, enderecoTrabalho, infoAdicionais, atendimentos, prontuarios, pagamentos);
     }
 
     @Override
@@ -163,7 +162,7 @@ public class Paciente {
                 ", contatoEmergencia=" + contatoEmergencia +
                 ", enderecoPessoal=" + enderecoPessoal +
                 ", enderecoTrabalho=" + enderecoTrabalho +
-                ", info_adicionais='" + info_adicionais + '\'' +
+                ", info_adicionais='" + infoAdicionais + '\'' +
                 ", atendimentos=" + atendimentos +
                 ", prontuarios=" + prontuarios +
                 ", pagamentos=" + pagamentos +

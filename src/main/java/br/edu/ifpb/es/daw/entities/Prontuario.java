@@ -22,7 +22,6 @@ public class Prontuario {
     private Paciente paciente;
 
     public Prontuario() {
-
     }
 
     public Long getId() {

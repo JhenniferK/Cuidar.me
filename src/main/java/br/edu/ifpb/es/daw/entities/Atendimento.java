@@ -15,8 +15,8 @@ public class Atendimento {
     private LocalDateTime data;
     @Column(name = "Localidade")
     private String localidade;
-    @Column(name = "Agendado")
-    private Boolean agendado;
+    @Column(name = "Status_atendimento")
+    private StatusAtendimento statusAtendimento;
 
     @ManyToOne
     @JoinColumn(name = "psicologo_id")
@@ -27,7 +27,6 @@ public class Atendimento {
     private Paciente paciente;
 
     public Atendimento() {
-
     }
 
     public Long getId() {
@@ -54,12 +53,12 @@ public class Atendimento {
         this.localidade = localidade;
     }
 
-    public Boolean isAgendado() {
-        return agendado;
+    public StatusAtendimento isAgendado() {
+        return statusAtendimento;
     }
 
-    public void setAgendado(Boolean agendado) {
-        this.agendado = agendado;
+    public void setAgendado(StatusAtendimento statusAtendimento) {
+        this.statusAtendimento = statusAtendimento;
     }
 
     @Override
@@ -67,12 +66,12 @@ public class Atendimento {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Atendimento that = (Atendimento) o;
-        return Objects.equals(id, that.id) && Objects.equals(data, that.data) && Objects.equals(localidade, that.localidade) && Objects.equals(agendado, that.agendado);
+        return Objects.equals(id, that.id) && Objects.equals(data, that.data) && Objects.equals(localidade, that.localidade) && Objects.equals(statusAtendimento, that.statusAtendimento);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, data, localidade, agendado);
+        return Objects.hash(id, data, localidade, statusAtendimento);
     }
 
     @Override
@@ -81,7 +80,7 @@ public class Atendimento {
                 "id=" + id +
                 ", data=" + data +
                 ", localidade='" + localidade + '\'' +
-                ", agendado=" + agendado +
+                ", agendado=" + statusAtendimento +
                 ", psicologo=" + psicologo +
                 ", paciente=" + paciente +
                 '}';

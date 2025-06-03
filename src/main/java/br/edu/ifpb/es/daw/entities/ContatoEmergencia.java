@@ -11,6 +11,7 @@ public class ContatoEmergencia {
 
     public ContatoEmergencia(){
     }
+
     public String getNome() {
         return nome;
     }

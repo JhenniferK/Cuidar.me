@@ -19,6 +19,10 @@ public class Pagamento {
     @Column(name = "Status_pagamento")
     private StatusPagamento statusPagamento;
 
+    @ManyToOne
+    @JoinColumn(name = "paciente_id")
+    private Paciente paciente;
+
     public Pagamento() {
     }
 
@@ -47,12 +51,20 @@ public class Pagamento {
         this.metodo = metodo;
     }
 
-    public StatusPagamento isStatus() {
+    public StatusPagamento getStatusPagamento() {
         return statusPagamento;
     }
 
-    public void setStatus(StatusPagamento statusPagamento) {
+    public void setStatusPagamento(StatusPagamento statusPagamento) {
         this.statusPagamento = statusPagamento;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
     public LocalDateTime getData() {

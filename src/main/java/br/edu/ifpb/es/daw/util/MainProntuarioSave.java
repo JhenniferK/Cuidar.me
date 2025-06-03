@@ -17,7 +17,7 @@ public class MainProntuarioSave {
 
             prontuario.setDescricao("A paciente Joyce está enfrentando problemas com ansiedade");
             LocalDateTime localDateTime = LocalDateTime.of(2025, 4, 3, 14, 30);
-            prontuario.setData_registro(localDateTime);
+            prontuario.setDataRegistro(localDateTime);
 
             System.out.println(prontuario);
             prontuarioDAO.save(prontuario);

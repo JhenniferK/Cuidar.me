@@ -4,6 +4,7 @@ import br.edu.ifpb.es.daw.dao.AtendimentoDAO;
 import br.edu.ifpb.es.daw.dao.PersistenciaDawException;
 import br.edu.ifpb.es.daw.dao.impl.AtendimentoDAOImpl;
 import br.edu.ifpb.es.daw.entities.Atendimento;
+import br.edu.ifpb.es.daw.entities.StatusAtendimento;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
@@ -19,7 +20,7 @@ public class MainAtendimentoSave {
         LocalDateTime localDateTime = LocalDateTime.of(2025, 4, 3, 14, 30);
         atendimento.setData(localDateTime);
 
-        atendimento.setAgendado(true);
+        atendimento.setStatusAtendimento(StatusAtendimento.ATENDIDO);
 
         System.out.println(atendimento);
         atendimentoDAO.save(atendimento);

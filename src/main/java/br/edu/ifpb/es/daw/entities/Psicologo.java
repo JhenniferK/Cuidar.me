@@ -23,7 +23,7 @@ public class Psicologo {
     @OneToMany(mappedBy = "psicologo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Atendimento> atendimentos = new ArrayList<>();
 
-    @OneToMany(mappedBy = "prontuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "psicologo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Prontuario> prontuarios = new ArrayList<>();
 
     public Psicologo() {

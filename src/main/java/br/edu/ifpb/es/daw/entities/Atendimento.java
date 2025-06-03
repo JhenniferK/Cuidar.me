@@ -53,11 +53,11 @@ public class Atendimento {
         this.localidade = localidade;
     }
 
-    public StatusAtendimento isAgendado() {
+    public StatusAtendimento getStatusAtendimento() {
         return statusAtendimento;
     }
 
-    public void setAgendado(StatusAtendimento statusAtendimento) {
+    public void setStatusAtendimento(StatusAtendimento statusAtendimento) {
         this.statusAtendimento = statusAtendimento;
     }
 

@@ -13,9 +13,9 @@
             <!--
                           -->
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://ep-polished-wildflower-a4vsczoz-pooler.us-east-1.aws.neon.tech/TestesDisc"/>
-            <property name="jakarta.persistence.jdbc.user" value="TestesDisc_owner"/>
-            <property name="jakarta.persistence.jdbc.password" value="npg_mFUQs79SBHuy"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://ep-odd-hill-a4h6nwmr-pooler.us-east-1.aws.neon.tech/bd2"/>
+            <property name="jakarta.persistence.jdbc.user" value="bd2_owner"/>
+            <property name="jakarta.persistence.jdbc.password" value="npg_SB5mHk2sqPdO"/>
             <!--  /Database PostgreSQL -->
             <!--  HIBERNATE  -->
             <!--  Configuração Hibernate  -->

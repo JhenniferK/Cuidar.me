@@ -5,6 +5,7 @@ import br.edu.ifpb.es.daw.dao.PersistenciaDawException;
 import br.edu.ifpb.es.daw.dao.impl.PagamentoDAOImpl;
 import br.edu.ifpb.es.daw.entities.Metodo;
 import br.edu.ifpb.es.daw.entities.Pagamento;
+import br.edu.ifpb.es.daw.entities.StatusPagamento;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
@@ -18,7 +19,7 @@ public class MainPagamentoSave {
 
         pagamento.setValor(234);
         pagamento.setMetodo(Metodo.ESPECIE);
-        pagamento.setStatus(true);
+        pagamento.setStatusPagamento(StatusPagamento.PENDENTE);
         LocalDateTime localDateTime = LocalDateTime.of(2025, 4, 3, 14, 30);
         pagamento.setData(localDateTime);
 

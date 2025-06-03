@@ -37,7 +37,7 @@ public class MainPacienteSave {
         endereco2.setLogradouro("Manoel Carlos");
         endereco2.setNumero(45);
         paciente.setEnderecoTrabalho(endereco2);
-        paciente.setInfo_adicionais("Precisa de medicamentos");
+        paciente.setInfoAdicionais("Precisa de medicamentos");
 
         System.out.println(paciente);
         pacienteDAO.save(paciente);

@@ -21,6 +21,10 @@ public class Prontuario {
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
+    @ManyToOne
+    @JoinColumn(name = "psicologo_id")
+    private Psicologo psicologo;
+
     public Prontuario() {
     }
 
@@ -54,6 +58,14 @@ public class Prontuario {
 
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
+    }
+
+    public Psicologo getPsicologo() {
+        return psicologo;
+    }
+
+    public void setPsicologo(Psicologo psicologo) {
+        this.psicologo = psicologo;
     }
 
     @Override

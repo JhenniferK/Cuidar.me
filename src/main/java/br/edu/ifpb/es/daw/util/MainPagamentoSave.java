@@ -19,7 +19,7 @@ public class MainPagamentoSave {
 
         pagamento.setValor(234);
         pagamento.setMetodo(Metodo.ESPECIE);
-        pagamento.setStatusPagamento(StatusPagamento.PENDENTE);
+        pagamento.setStatusPagamento(StatusPagamento.PAGO);
         LocalDateTime localDateTime = LocalDateTime.of(2025, 4, 3, 14, 30);
         pagamento.setData(localDateTime);
 

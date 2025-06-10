@@ -12,18 +12,18 @@ public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "Nome")
+    @Column(name = "NOME")
     private String nome;
     @Column(name = "CPF", unique = true)
-    private Long cpf;
+    private String cpf;
     @Column(name = "RG")
-    private Long rg;
-    @Embedded
-    private ContatoEmergencia contatoEmergencia;
+    private String rg;
+    @Column(name = "TELEFONE")
+    private String telefonePessoal;
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name="logradouro", column=@Column(name = "LOGRADOURO_PESSOAL")),
-            @AttributeOverride(name="numero", column=@Column(name = "NUMER0_PESSOAL")),
+            @AttributeOverride(name="numero", column=@Column(name = "NUMERO_PESSOAL")),
             @AttributeOverride(name="cidade", column=@Column(name = "CIDADE_PESSOAL")),
             @AttributeOverride(name="estado", column=@Column(name = "ESTADO_PESSOAL"))
     })
@@ -31,13 +31,19 @@ public class Paciente {
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name="logradouro", column=@Column(name = "LOGRADOURO_TRABALHO")),
-            @AttributeOverride(name="numero", column=@Column(name = "NUMER0_TRABALHO")),
+            @AttributeOverride(name="numero", column=@Column(name = "NUMERO_TRABALHO")),
             @AttributeOverride(name="cidade", column=@Column(name = "CIDADE_TRABALHO")),
             @AttributeOverride(name="estado", column=@Column(name = "ESTADO_TRABALHO"))
     })
     private Endereco enderecoTrabalho;
-    @Column(name = "Infos_Adicionais")
+    @Column(name = "INFOS_ADICIONAIS")
     private String infoAdicionais;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name="nome", column=@Column(name = "NOME_CONTATOEMERGENCIA")),
+            @AttributeOverride(name="telefone", column =@Column(name = "TELEFONE_CONTATOEMERGENCIA"))
+    })
+    private ContatoEmergencia contatoEmergencia;
 
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Atendimento> atendimentos = new ArrayList<>();
@@ -51,6 +57,14 @@ public class Paciente {
     public Paciente() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -59,28 +73,28 @@ public class Paciente {
         this.nome = nome;
     }
 
-    public Long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public Long getRg() {
+    public String getRg() {
         return rg;
     }
 
-    public void setRg(Long rg) {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 
-    public Long getId() {
-        return id;
+    public String getTelefonePessoal() {
+        return telefonePessoal;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTelefonePessoal(String telefonePessoal) {
+        this.telefonePessoal = telefonePessoal;
     }
 
     public Endereco getEnderecoPessoal() {
@@ -144,12 +158,12 @@ public class Paciente {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Paciente paciente = (Paciente) o;
-        return Objects.equals(id, paciente.id) && Objects.equals(nome, paciente.nome) && Objects.equals(cpf, paciente.cpf) && Objects.equals(rg, paciente.rg) && Objects.equals(contatoEmergencia, paciente.contatoEmergencia) && Objects.equals(enderecoPessoal, paciente.enderecoPessoal) && Objects.equals(enderecoTrabalho, paciente.enderecoTrabalho) && Objects.equals(infoAdicionais, paciente.infoAdicionais) && Objects.equals(atendimentos, paciente.atendimentos) && Objects.equals(prontuarios, paciente.prontuarios) && Objects.equals(pagamentos, paciente.pagamentos);
+        return Objects.equals(id, paciente.id) && Objects.equals(nome, paciente.nome) && Objects.equals(cpf, paciente.cpf) && Objects.equals(rg, paciente.rg) && Objects.equals(telefonePessoal, paciente.telefonePessoal) && Objects.equals(enderecoPessoal, paciente.enderecoPessoal) && Objects.equals(enderecoTrabalho, paciente.enderecoTrabalho) && Objects.equals(infoAdicionais, paciente.infoAdicionais) && Objects.equals(contatoEmergencia, paciente.contatoEmergencia) && Objects.equals(atendimentos, paciente.atendimentos) && Objects.equals(prontuarios, paciente.prontuarios) && Objects.equals(pagamentos, paciente.pagamentos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, cpf, rg, contatoEmergencia, enderecoPessoal, enderecoTrabalho, infoAdicionais, atendimentos, prontuarios, pagamentos);
+        return Objects.hash(id, nome, cpf, rg, telefonePessoal, enderecoPessoal, enderecoTrabalho, infoAdicionais, contatoEmergencia, atendimentos, prontuarios, pagamentos);
     }
 
     @Override
@@ -157,12 +171,13 @@ public class Paciente {
         return "Paciente{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", cpf=" + cpf +
-                ", rg=" + rg +
-                ", contatoEmergencia=" + contatoEmergencia +
+                ", cpf='" + cpf + '\'' +
+                ", rg='" + rg + '\'' +
+                ", telefonePessoal='" + telefonePessoal + '\'' +
                 ", enderecoPessoal=" + enderecoPessoal +
                 ", enderecoTrabalho=" + enderecoTrabalho +
-                ", info_adicionais='" + infoAdicionais + '\'' +
+                ", infoAdicionais='" + infoAdicionais + '\'' +
+                ", contatoEmergencia=" + contatoEmergencia +
                 ", atendimentos=" + atendimentos +
                 ", prontuarios=" + prontuarios +
                 ", pagamentos=" + pagamentos +

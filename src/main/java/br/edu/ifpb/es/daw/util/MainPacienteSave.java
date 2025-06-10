@@ -15,14 +15,10 @@ public class MainPacienteSave {
         PacienteDAO pacienteDAO = new PacienteDAOImpl(emf);
         Paciente paciente = new Paciente();
 
-        paciente.setCpf(12345678900L);
         paciente.setNome("Joyce Gregório");
-
-        ContatoEmergencia contatoEmergencia = new ContatoEmergencia();
-        contatoEmergencia.setNome("Jhennifer");
-        contatoEmergencia.setTelefone(232455667);
-
-        paciente.setContatoEmergencia(contatoEmergencia);
+        paciente.setCpf("123.234.345-45");
+        paciente.setRg("1234567");
+        paciente.setTelefonePessoal("(83) 98765-4321");
 
         Endereco endereco = new Endereco();
         endereco.setCidade("Esperança");
@@ -32,12 +28,17 @@ public class MainPacienteSave {
         paciente.setEnderecoPessoal(endereco);
 
         Endereco endereco2 = new Endereco();
-        endereco2.setCidade("Esperança");
+        endereco2.setCidade("Remígio");
         endereco2.setEstado("Paraíba");
-        endereco2.setLogradouro("Manoel Carlos");
-        endereco2.setNumero(45);
+        endereco2.setLogradouro("Ranieri Vitório");
+        endereco2.setNumero(200);
         paciente.setEnderecoTrabalho(endereco2);
         paciente.setInfoAdicionais("Precisa de medicamentos");
+
+        ContatoEmergencia contatoEmergencia = new ContatoEmergencia();
+        contatoEmergencia.setNome("Jhennifer Kelly");
+        contatoEmergencia.setTelefone("(83) 12345-6789");
+        paciente.setContatoEmergencia(contatoEmergencia);
 
         System.out.println(paciente);
         pacienteDAO.save(paciente);

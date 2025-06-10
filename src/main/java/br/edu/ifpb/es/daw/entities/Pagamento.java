@@ -12,21 +12,21 @@ public class Pagamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "Valor")
+    @Column(name = "VALOR")
     private Integer valor;
+    @Column(name = "DATA")
+    private LocalDateTime data;
     @Enumerated(EnumType.STRING)
     private Metodo metodo;
-    @Column(name = "Status_pagamento")
+    @Column(name = "STATUS")
     private StatusPagamento statusPagamento;
 
     @ManyToOne
-    @JoinColumn(name = "paciente_id")
+    @JoinColumn(name = "PACIENTE_ID")
     private Paciente paciente;
 
     public Pagamento() {
     }
-
-    private LocalDateTime data;
 
     public Long getId() {
         return id;
@@ -41,6 +41,14 @@ public class Pagamento {
 
     public void setValor(Integer valor) {
         this.valor = valor;
+    }
+
+    public LocalDateTime getData() {
+        return data;
+    }
+
+    public void setData(LocalDateTime data) {
+        this.data = data;
     }
 
     public Metodo getMetodo() {
@@ -65,14 +73,6 @@ public class Pagamento {
 
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
-    }
-
-    public LocalDateTime getData() {
-        return data;
-    }
-
-    public void setData(LocalDateTime data) {
-        this.data = data;
     }
 
     @Override

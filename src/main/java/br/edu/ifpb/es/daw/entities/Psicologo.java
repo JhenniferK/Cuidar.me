@@ -13,17 +13,17 @@ public class Psicologo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long crp;
-    @Column(name = "Nome")
+    @Column(name = "NOME")
     private String nome;
-    @Column(name = "Email", unique = true)
+    @Column(name = "EMAIL", unique = true)
     private String email;
-    @Column(name = "Senha")
+    @Column(name = "SENHA")
     private String senha;
 
-    @OneToMany(mappedBy = "psicologo", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "PSICOLOGO", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Atendimento> atendimentos = new ArrayList<>();
 
-    @OneToMany(mappedBy = "psicologo", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "PSICOLOGO", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Prontuario> prontuarios = new ArrayList<>();
 
     public Psicologo() {

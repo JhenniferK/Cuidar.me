@@ -20,7 +20,7 @@ public class MainAtendimentoSave {
         LocalDateTime localDateTime = LocalDateTime.of(2025, 4, 3, 14, 30);
         atendimento.setData(localDateTime);
 
-        atendimento.setStatusAtendimento(StatusAtendimento.ATENDIDO);
+        atendimento.setAgendado(StatusAtendimento.CONFIRMADO);
 
         System.out.println(atendimento);
         atendimentoDAO.save(atendimento);

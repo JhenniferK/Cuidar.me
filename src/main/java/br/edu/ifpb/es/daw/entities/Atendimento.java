@@ -11,19 +11,20 @@ public class Atendimento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "Data")
+    @Column(name = "DATA")
     private LocalDateTime data;
-    @Column(name = "Localidade")
+    @Column(name = "LOCALIDADE")
     private String localidade;
-    @Column(name = "Status_atendimento")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "STATUS")
     private StatusAtendimento statusAtendimento;
 
     @ManyToOne
-    @JoinColumn(name = "psicologo_id")
+    @JoinColumn(name = "PSICOLOGO_ID")
     private Psicologo psicologo;
 
     @ManyToOne
-    @JoinColumn(name = "paciente_id")
+    @JoinColumn(name = "PACIENTE_ID")
     private Paciente paciente;
 
     public Atendimento() {
@@ -57,7 +58,7 @@ public class Atendimento {
         return statusAtendimento;
     }
 
-    public void setStatusAtendimento(StatusAtendimento statusAtendimento) {
+    public void setAgendado(StatusAtendimento statusAtendimento) {
         this.statusAtendimento = statusAtendimento;
     }
 

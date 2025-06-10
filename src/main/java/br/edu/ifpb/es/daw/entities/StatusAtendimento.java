@@ -1,8 +1,8 @@
 package br.edu.ifpb.es.daw.entities;
 
 public enum StatusAtendimento {
+    SOLICITADO,
     CONFIRMADO,
-    PENDENTE,
     ATENDIDO,
     CANCELADO,
     REMARCADO

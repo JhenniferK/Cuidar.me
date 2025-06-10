@@ -1,5 +1,8 @@
 package br.edu.ifpb.es.daw.entities;
 
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.AttributeOverrides;
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 import java.util.Objects;
@@ -7,7 +10,7 @@ import java.util.Objects;
 @Embeddable
 public class ContatoEmergencia {
     private String nome;
-    private Integer telefone;
+    private String telefone;
 
     public ContatoEmergencia(){
     }
@@ -20,11 +23,11 @@ public class ContatoEmergencia {
         this.nome = nome;
     }
 
-    public Integer getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Integer telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 

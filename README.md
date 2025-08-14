@@ -21,6 +21,11 @@ O **Cuidar.me** surge especialmente para atender essas demandas, inicialmente pe
 
 * Nome completo
 * RG e CPF
+* Data de Nascimento
+* Gênero que se identifica
+* Estado civil
+* Grau de instrução
+* Profissão
 * Endereços (residencial e profissional)
 * Contatos pessoais e de emergência
 * Informações complementares (uso de medicamentos, etc.)
@@ -31,11 +36,9 @@ O **Cuidar.me** surge especialmente para atender essas demandas, inicialmente pe
 * Registro de atendimentos presenciais e online
 * Organização por localidade (cidade ou online)
 * Confirmação automática via mensagem informativa
-* Envio de lembrete por WhatsApp
 
 ### 💳 Gerenciamento Financeiro
 
-* Geração de link para pagamento via cartão
 * Opções para boleto bancário e QR Code (Pix)
 * Controle de status dos pagamentos (pendente/quitado)
 * Emissão de recibos
@@ -55,7 +58,7 @@ O **Cuidar.me** surge especialmente para atender essas demandas, inicialmente pe
 
 > Diagrama Conceitual do Banco de Dados:
 
-![Conceitual - SistPsi](https://github.com/user-attachments/assets/4f40ffa7-0b52-408d-8856-9f5c5e8199c3)
+<img width="1019" height="809" alt="image" src="https://github.com/user-attachments/assets/e0e980b9-20c0-4b81-a43a-e6a8c6ff6985" />
 
 ---
 

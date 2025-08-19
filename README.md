@@ -1,10 +1,10 @@
-# 🧠 Cuidar.me — Sistema de Gerenciamento para Psicólogos
+# Cuidar.me — Sistema de Gerenciamento para Psicólogos
 
-## 🌐 Visão Geral
+## Visão Geral
 
 O **Cuidar.me** é um sistema web que está sendo desenvolvido para otimizar a rotina administrativa de psicólogos. Em um cenário onde o excesso de tarefas manuais pode comprometer a qualidade do atendimento, o sistema surge como uma solução completa para **organização de prontuários**, **agendamento de consultas**, **controle financeiro**, **comunicação com pacientes** e **gestão de documentos**, tudo isso com foco em **segurança e conformidade com a LGPD**.
 
-## 🧩 Mini-Mundo
+## Mini-Mundo
 
 Muitos profissionais da psicologia enfrentam desafios como:
 
@@ -15,9 +15,9 @@ Muitos profissionais da psicologia enfrentam desafios como:
 
 O **Cuidar.me** surge especialmente para atender essas demandas, inicialmente pensando em uma psicóloga autônoma. O objetivo é oferecer uma ferramenta confiável, intuitiva e segura para **centralizar todas as informações clínicas e administrativas** em um único lugar.
 
-## ✅ Funcionalidades
+## Funcionalidades
 
-### 👥 Cadastro de Pacientes
+### Cadastro de Pacientes
 
 * Nome completo
 * RG e CPF
@@ -31,34 +31,34 @@ O **Cuidar.me** surge especialmente para atender essas demandas, inicialmente pe
 * Informações complementares (uso de medicamentos, etc.)
 * Anotações extras sobre a evolução do paciente
 
-### 📆 Agendamento de Consultas
+### Agendamento de Consultas
 
 * Registro de atendimentos presenciais e online
 * Organização por localidade (cidade ou online)
 * Confirmação automática via mensagem informativa
 
-### 💳 Gerenciamento Financeiro
+### Gerenciamento Financeiro
 
 * Opções para boleto bancário e QR Code (Pix)
 * Controle de status dos pagamentos (pendente/quitado)
 * Emissão de recibos
 
-### 📄 Gestão de Documentos
+### Gestão de Documentos
 
 * Modelos prontos de prontuários e declarações (ex: de comparecimento)
 * Preenchimento e impressão diretamente pelo sistema
 
-### 🔐 Segurança e Conformidade (LGPD)
+### Segurança e Conformidade
 
 * Armazenamento seguro dos dados dos pacientes
 * Acesso ao sistema via login e senha
 * Total sigilo dos prontuários e registros clínicos
 
-## 🧱 Modelo Relacional
+## Modelo Relacional
 
 > Diagrama Conceitual do Banco de Dados:
 
-<img width="1019" height="809" alt="image" src="https://github.com/user-attachments/assets/e0e980b9-20c0-4b81-a43a-e6a8c6ff6985" />
+<img width="983" height="770" alt="image" src="https://github.com/user-attachments/assets/7e35cf4c-7357-4afd-a7f9-8368b49cfd7d" />
 
 ---
 
